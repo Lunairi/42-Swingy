@@ -40,5 +40,27 @@
     	<artifactId>activejdbc</artifactId>
     	<version>2.3.1-j8</version>
 	</dependency>
+	<dependency>
+    	<groupId>org.hibernate.validator</groupId>
+    	<artifactId>hibernate-validator</artifactId>
+    	<version>6.1.1.Final</version>
+	</dependency>
+	<dependency>
+    	<groupId>org.glassfish</groupId>
+    	<artifactId>jakarta.el</artifactId>
+    	<version>3.0.3</version>
+	</dependency>
+	<dependency>
+    	<groupId>org.hibernate.validator</groupId>
+    	<artifactId>hibernate-validator-cdi</artifactId>
+    	<version>6.1.1.Final</version>
+	</dependency>
+	<dependency>
+    	<groupId>org.hibernate.validator</groupId>
+    	<artifactId>hibernate-validator-modules</artifactId>
+   	 	<version>6.1.1.Final</version>
+   	 	<classifier>wildfly-18.0.0.Final-patch</classifier>
+   	 	<type>zip</type>
+	</dependency>
   </dependencies>
 </project>

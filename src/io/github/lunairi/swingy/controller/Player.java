@@ -13,8 +13,38 @@ import io.github.lunairi.swingy.model.Hero;
 public class Player {
 	
 	public static Hero player;
+	
+	private int posX;
+	private int posY;
 
-	public Player() {
+	public Player() {}
+	
+	public void initPosition() {
+		this.posX = Map.mapSize / 2;
+		this.posY = Map.mapSize / 2;
+	}
+	
+	public void setPosition(int x, int y) {
+		this.posX = x;
+		this.posY = y;
+	}
+	
+	public int getPosX() {
+		return this.posX;
+	}
+	
+	public int getPosY() {
+		return this.posY;
+	}
+	
+	public int getLevel() {
+		return (int)player.get("level");
+	}
+	
+	public void loadCharacter(int index) {
+		Base.open("org.sqlite.JDBC", "jdbc:sqlite:swingy.db", "root", "");
+		player = Hero.findById(index);
+		Base.close();
 	}
 	
 	public static void createCharacter(String name, String job, int[] stats) {

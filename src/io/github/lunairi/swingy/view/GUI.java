@@ -14,9 +14,9 @@ import javax.swing.JPanel;
 public class GUI extends JFrame {
 	
 	public enum Panels {
-		StartMenu, NewGame, LoadGame;
+		StartMenu, NewGame, LoadGame, WorldMap;
 		
-		public static final int size = 3;
+		public static final int size = 4;
 	};
 	
 	private JPanel[] panels = new JPanel[Panels.size];
@@ -32,6 +32,7 @@ public class GUI extends JFrame {
 		this.panels[Panels.StartMenu.ordinal()] = new StartMenu();
 		this.panels[Panels.NewGame.ordinal()] = new NewGameMenu();
 		this.panels[Panels.LoadGame.ordinal()] = new LoadGameMenu();
+		this.panels[Panels.WorldMap.ordinal()] = new OverworldMenu();
 		for (int i = 0; i < Panels.size; i++) {
 			this.add(panels[i]);
 		}

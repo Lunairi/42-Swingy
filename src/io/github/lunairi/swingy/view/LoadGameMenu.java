@@ -87,6 +87,15 @@ public class LoadGameMenu extends JPanel {
 	private void loadGameButton() {
 		JButton loadGame = new JButton("Start Playing");
 		loadGame.setBounds(180, 260, 200, 40);
+		loadGame.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int index = classList.getSelectedIndex();
+				int heroID = (int)savedCharacters[index].getId();
+				GameEngine.player.loadCharacter(heroID);
+				GameEngine.map.generateMap(GameEngine.player.getLevel());
+				GameEngine.progressGame(Panels.WorldMap.ordinal());
+			}
+		});
 		this.add(loadGame);
 	}
 	
