@@ -35,11 +35,18 @@ public class Player {
 	public static Hero[] grabSavedCharacters() {
 		Base.open("org.sqlite.JDBC", "jdbc:sqlite:swingy.db", "root", "");
 		List<Hero> list = Hero.findAll();
+		System.out.println(list.size());
 		Hero[] savedCharacters = new Hero[list.size()];
 		for (int i = 0; i < list.size(); i++) {
 			savedCharacters[i] = list.get(i);
 		}
 		Base.close();
 		return savedCharacters;
+	}
+	
+	public static void deleteSavedCharacter(Hero savedData) {
+		Base.open("org.sqlite.JDBC", "jdbc:sqlite:swingy.db", "root", "");
+		savedData.delete();
+		Base.close();
 	}
 }

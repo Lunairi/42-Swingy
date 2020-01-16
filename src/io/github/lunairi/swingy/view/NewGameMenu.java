@@ -18,9 +18,6 @@ import io.github.lunairi.swingy.model.Class.Stats;
 
 public class NewGameMenu extends JPanel {
 	
-//	private JButton newGameButton;
-//	private JButton loadGameButton;
-	
 	private String classSelected = "Knight";
 	private JLabel statPreview;
 	private JTextField nameBox;
@@ -34,6 +31,7 @@ public class NewGameMenu extends JPanel {
 		this.classSelection();
 		this.previewStats();
 		this.confirmCharacterButton();
+		this.backButton();
 	}
 	
 	private void initHeader() {
@@ -70,7 +68,7 @@ public class NewGameMenu extends JPanel {
 		int[] stats = Class.classes.get(classSelected);
 		this.statPreview.setText(
 				"Health: [" + stats[Stats.Health.ordinal()] + 
-				"] - Atttack: [" + stats[Stats.Attack.ordinal()] +
+				"] - Attack: [" + stats[Stats.Attack.ordinal()] +
 				"] - Defense: [" + stats[Stats.Defense.ordinal()] +
 				"] - Speed [" + stats[Stats.Speed.ordinal()] + "]"
 		);
@@ -88,11 +86,36 @@ public class NewGameMenu extends JPanel {
 		createButton.setBounds(240, 260, 300, 40);
 		createButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(nameBox.getText());
 				Player.createCharacter(nameBox.getText(), classSelected, Class.classes.get(classSelected));
-				GameEngine.progressGame(Panels.StartMenu.ordinal());
+				GameEngine.progressGame(Panels.StartMenu.ordinal()); // will have to change to game panel
 			}
 		});
 		this.add(createButton);
 	}
+	
+	private void backButton() {
+		JButton backButton = new JButton("Back");
+		backButton.setBounds(280, 310, 200, 40);
+		backButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				GameEngine.progressGame(Panels.StartMenu.ordinal());
+			}
+		});
+		this.add(backButton);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

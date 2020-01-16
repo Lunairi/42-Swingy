@@ -10,8 +10,6 @@ import org.javalite.activejdbc.Base;
 
 public class Database {
 	
-	Connection connection = null;
-	
 	public Database() {
 		Base.open("org.sqlite.JDBC", "jdbc:sqlite:swingy.db", "root", "");
 	}

@@ -38,6 +38,7 @@ public class StartMenu extends JPanel {
 		loadGameButton.setBounds(260, 300, 300, 140);
 		loadGameButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				LoadGameMenu.loadSaveData();
 				GameEngine.progressGame(Panels.LoadGame.ordinal());
 			}
 		});
