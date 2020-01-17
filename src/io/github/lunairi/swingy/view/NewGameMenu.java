@@ -49,7 +49,7 @@ public class NewGameMenu extends JPanel {
 	}
 	
 	private void classSelection() {
-		String[] classes = {"Knight", "Fighter", "Trickster", "Chanter", "Marksman"};
+		final String[] classes = {"Knight", "Fighter", "Trickster", "Chanter", "Marksman"};
 		JComboBox<String> classList = new JComboBox<String>(classes);
 		classList.setSelectedIndex(0);
 		classList.setBounds(300, 140, 200, 40);

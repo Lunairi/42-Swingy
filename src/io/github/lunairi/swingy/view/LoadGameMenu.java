@@ -90,7 +90,7 @@ public class LoadGameMenu extends JPanel {
 		loadGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int index = classList.getSelectedIndex();
-				int heroID = (int)savedCharacters[index].getId();
+				int heroID = (Integer)savedCharacters[index].getId();
 				GameEngine.player.loadCharacter(heroID);
 				GameEngine.map.generateMap(GameEngine.player.getLevel());
 				GameEngine.progressGame(Panels.WorldMap.ordinal());

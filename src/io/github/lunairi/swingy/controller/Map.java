@@ -7,6 +7,7 @@ import java.util.List;
 public class Map {
 	public static List<int[]> map = new ArrayList<int[]>();
 	public static int mapSize;
+	private int prevLevel = 0;
 	
 	public enum Obstacles {
 		Nothing, Enemy, Town, Chest
@@ -16,7 +17,10 @@ public class Map {
 
 
 	public void generateMap(int level) {
-		map.clear();
+		if (this.prevLevel != level) {
+			map.clear();
+			this.prevLevel = level;
+		}
 		mapSize = (level - 1) * 5 + 10 - (level % 2);
 		for (int i = 0; i < 10; i++) {
 			int[] mapRow = new int[mapSize];

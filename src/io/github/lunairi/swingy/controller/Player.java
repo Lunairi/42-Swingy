@@ -24,9 +24,19 @@ public class Player {
 		this.posY = Map.mapSize / 2;
 	}
 	
-	public void setPosition(int x, int y) {
-		this.posX = x;
-		this.posY = y;
+	public void setPosition(String direction) {
+		if (direction.equals("Move Up")) {
+			this.posY = this.posY - 1 < 0 ? 0 : this.posY - 1;
+		}
+		else if (direction.equals("Move Left")) {
+			this.posX = this.posX - 1 < 0 ? 0 : this.posX - 1;
+		}
+		else if (direction.equals("Move Right")) {
+			this.posX = this.posX + 1 >= Map.mapSize ? Map.mapSize - 1 : this.posX + 1;
+		}
+		else if (direction.equals("Move Down")) {
+			this.posY = this.posY + 1 >= Map.mapSize ? Map.mapSize - 1 : this.posY + 1;
+		}
 	}
 	
 	public int getPosX() {
@@ -38,7 +48,7 @@ public class Player {
 	}
 	
 	public int getLevel() {
-		return (int)player.get("level");
+		return (Integer)player.get("level");
 	}
 	
 	public void loadCharacter(int index) {
@@ -52,7 +62,7 @@ public class Player {
 		player = new Hero().set(
 				"name", name,
 				"job", job,
-				"level", 1,
+				"level", 3,
 				"xp", 0,
 				"health", stats[Stats.Health.ordinal()],
 				"attack", stats[Stats.Attack.ordinal()],
